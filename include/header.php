@@ -12,6 +12,8 @@
     <!-- Stylesheets & Fonts -->
     <link href="css/plugins.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -28,15 +30,6 @@
                             <span class="logo-dark"><img width="200px" src="assets/logo/logo_florencia_blanc.png"></span>
                         </a>
                     </div>
-                    <!--End: Logo-->
-                    <div class="header-extras d-md-none d-lg-block">
-                        <ul>
-                            <li class="social-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="social-tiktok"><a href="#"><img src="assets/logo/tiktok_icon.svg"></a></li>
-                            <li class="social-instagram"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li class="social-linkedin"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
                     <div id="mainMenu-trigger">
                         <a class="lines-button x"><span class="lines"></span></a>
                     </div>
@@ -46,11 +39,9 @@
                             <nav>
                                 <ul>
                                     <li><a href="index.php">Accueil</a></li>
-                                    <li><a href="prestation.php">Prestation</a></li>
-                                    <li><a href="a-propos.php">L'agence</a></li>
-                                    <li><a href="galerie.php">Galerie</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
-                                    <li><a href="blog.php">Blog</a></li>
+                                    <li><a href="create-article.php">Création d'articles de blog</a></li>
+                                    <li><a href="view-form.php">Formulaires</a></li>
+                                    <li><a href="upload-image.php">Portfolio</a></li>
                                 </ul>
                             </nav>
                         </div>
