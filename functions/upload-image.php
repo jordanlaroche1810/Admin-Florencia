@@ -4,10 +4,8 @@
 <?php
 
     $category = $_POST['categorie'];
-    $title = $_POST['titre'];
-    $content = $_POST['contenu'];
 
-    $target_dir = "../../florencia/images/articles/";
+    $target_dir = "../../florencia/images/portfolio/";
     $randomValue = rand(1, 1000000);
     $uploadOk = 1;
     $originalFilename = basename($_FILES["image"]["name"]);
@@ -30,16 +28,12 @@
             echo '<div class="alert alert-danger" role="alert">Sorry, your file was not uploaded.</div>';
         } else {
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO articles (
+                $sql = "INSERT INTO portfolio (
                         category,
                         picture,
-                        alt,
-                        title,
-                        content
+                        alt
                         ) 
                         VALUES (
-                        ?,
-                        ?,
                         ?,
                         ?,
                         ?
@@ -48,9 +42,7 @@
                         $pdo->prepare($sql)->execute([
                         $category,
                         $newFilename,
-                        $originalFilename,
-                        $title,
-                        $content
+                        $originalFilename
                         ]);
                     
                         $_SESSION['flash']['success'] = '<strong><i class="fa fa-check-circle"></i> Votre article a bien été créé !</strong> Bravo Margaux !';

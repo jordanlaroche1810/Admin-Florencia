@@ -1,6 +1,9 @@
 <?php require_once 'include/header.php'; ?>
     <section id="page-content" class="sidebar-both" style="transform: none;">
             <div class="container" style="transform: none;">
+                <div class="heading-text heading-gradient">
+                    <h2><span>création d'articles de blog</span></h2>
+                </div>
                 <div class="row" style="transform: none;">
                     <!-- Sidebar-->
                     <div class="sidebar sticky-sidebar col-lg-3" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 831.367px;">

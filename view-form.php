@@ -1,6 +1,12 @@
 <?php require_once 'include/header.php'; ?>
     <section id="page-content" class="sidebar-both" style="transform: none;">
             <div class="container" style="transform: none;">
+                <div class="heading-text heading-gradient">
+                    <h2><span>formulaires de contact</span></h2>
+                    <a href="#" class="btn btn-outline btn-roundeded">En attente</a>
+                    <a href="#" class="btn btn-outline btn-roundeded">Rappel client</a>
+                    <a href="#" class="btn btn-outline btn-roundeded">Traité</a>
+                </div>
                 <div class="row" style="transform: none;">
                     <!-- post content -->
                     <div class="content col-lg-12">
