@@ -15,11 +15,6 @@
                                             <button class="btn btn-primary btn-icon-holder" data-bs-target="#modal-3" data-bs-toggle="modal" href="#">Ajouter un article<i class="icon-plus"></i></button>
                                         </div>
                                     </div>
-                                    <div class="post-thumbnail-entry">
-                                        <div class="post-thumbnail-content">
-                                            <button type="button" class="btn btn-icon-holder btn-shadow btn-light-hover btn-light-hover">AJOUTER UN ARTICLE<i class="icon-plus"></i></button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -50,11 +45,65 @@
                                             <td><?= $list["category"]?></td>
                                             <td><?= $list["title"]?></td>
                                             <td>
-                                                <a class="ms-2 text-reset" href="#" data-bs-toggle="tooltip" data-bs-original-title="Edit"><i class="icon-edit"></i></a>
-                                                <a class="ms-2 text-reset" href="#" data-bs-toggle="tooltip" data-bs-original-title="Delete"><i class="icon-trash-2"></i></a>
-                                                <a class="ms-2 text-reset" href="#" data-bs-toggle="tooltip" data-bs-original-title="Settings"><i class="icon-settings"></i></a>
+                                                <button type="button" class="btn btn-secondary btn-xs px-4" data-bs-toggle="modal" data-bs-target="#modal-update-<?=$list['id']?>">MODIFIER</button>
+                                                <a class="ms-2 text-reset" href="#" data-bs-target="#modal-delete-<?=$list['id']?>" data-bs-toggle="modal" data-bs-toggle="tooltip" data-bs-original-title="Supprimer"><i class="icon-trash-2"></i></a>
+
+                                                
                                             </td>
                                         </tr>
+
+                                        <div class="modal fade show" id="modal-delete-<?=$list['id']?>" aria-labelledby="modal-label-<?=$list['id']?>" aria-modal="true" role="dialog" style="z-index=3000">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 id="modal-label-<?=$list['id']?>" class="modal-title">Création de l'article</h4>
+                                                            <button aria-hidden="true" data-bs-dismiss="modal" class="btn-close" type="button">×</button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="POST" action="functions/create-article.php" enctype="multipart/form-data">
+                                                                <div class="row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="titre">Titre de l'article</label>
+                                                                        <input type="text" aria-required="true" name="titre" required class="form-control required name" placeholder="Entrez le titre de votre article" value="<?=$list['title']?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="categorie">Catégorie de l'article</label>
+                                                                        <select class="form-select" name="categorie" id="category-ie">
+                                                                            <option selected value="<?=$list['category']?>"><?=$list['category']?></option>
+                                                                            <option>Question</option>
+                                                                            <option>Devis</option>
+                                                                            <option>Partenariat</option>
+                                                                            <option>Autres</option>
+                                                                            <option>5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="message">Message</label>
+                                                                    <textarea id="content" name="contenu" type="text" name="message" class="form-control" value="category"></textarea>
+                                                                </div>
+
+                                                                <input type="hidden" name="create" value="true"/>
+                                                                <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane"></i>&nbsp;Send message</button>
+                                                            </form>
+                                                            <script src="https://cdn.tiny.cloud/1/gqmgjt6nrnr2z6at7rlx6pa566cv3w6h4dg09y2ycwh6mwxh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+                                                            <script>
+                                                                tinymce.init({
+                                                                    selector: '#content',
+                                                                    plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                                                                    toolbar_mode: 'floating',
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button data-bs-dismiss="modal" class="btn btn-b" type="button">Close</button>
+                                                            <button class="btn btn-b" type="button">Save Changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <?php 
                                             }
                                         ?>
@@ -74,7 +123,65 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 id="modal-label-3" class="modal-title">Large Modal</h4>
+                        <h4 id="modal-label-3" class="modal-title">Création de l'article</h4>
+                        <button aria-hidden="true" data-bs-dismiss="modal" class="btn-close" type="button">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="functions/create-article.php" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="titre">Titre de l'article</label>
+                                    <input type="text" aria-required="true" name="titre" required class="form-control required name" placeholder="Entrez le titre de votre article">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="image">Photo de couverture de l'article</label>
+                                    <input type="file" name="image" class="form-control-file" id="image" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="categorie">Catégorie de l'article</label>
+                                    <select class="form-select" name="categorie" id="category-ie">
+                                        <option>Question</option>
+                                        <option>Devis</option>
+                                        <option>Partenariat</option>
+                                        <option>Autres</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="content" name="contenu" type="text" name="message" class="form-control"></textarea>
+                            </div>
+
+                            <input type="hidden" name="create" value="true"/>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane"></i>&nbsp;Send message</button>
+                        </form>
+                        <script src="https://cdn.tiny.cloud/1/gqmgjt6nrnr2z6at7rlx6pa566cv3w6h4dg09y2ycwh6mwxh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+                        <script>
+                            tinymce.init({
+                                selector: '#content',
+                                plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                                toolbar_mode: 'floating',
+                            });
+                        </script>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-bs-dismiss="modal" class="btn btn-b" type="button">Close</button>
+                        <button class="btn btn-b" type="button">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="modal fade show" id="modal-delete" tabindex="-1" aria-labelledby="modal-label-3" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 id="modal-label-3" class="modal-title">Création de l'article</h4>
                         <button aria-hidden="true" data-bs-dismiss="modal" class="btn-close" type="button">×</button>
                     </div>
                     <div class="modal-body">

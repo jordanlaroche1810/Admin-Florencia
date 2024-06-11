@@ -3,6 +3,8 @@
 
 <?php
 
+    $title = $_POST['titre'];
+    $description = $_POST['description'];
     $category = $_POST['categorie'];
 
     $target_dir = "../../florencia/images/portfolio/";
@@ -29,6 +31,8 @@
         } else {
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                 $sql = "INSERT INTO portfolio (
+                        title,
+                        description,
                         category,
                         picture,
                         alt
@@ -36,21 +40,25 @@
                         VALUES (
                         ?,
                         ?,
+                        ?,
+                        ?,
                         ?
                         )"; 
                         
                         $pdo->prepare($sql)->execute([
+                        $title,
+                        $description,
                         $category,
                         $newFilename,
                         $originalFilename
                         ]);
                     
                         $_SESSION['flash']['success'] = '<strong><i class="fa fa-check-circle"></i> Votre article a bien été créé !</strong> Bravo Margaux !';
-                        print("<script language=\"javascript\" type=\"text/javascript\">window.location.replace(\"../create-article.php\");</script>");
+                        print("<script language=\"javascript\" type=\"text/javascript\">window.location.replace(\"../upload-image.php\");</script>");
 
             } else {
                 $_SESSION['flash']['error'] = '<strong><i class="fa fa-check-circle"></i> Problème avec l\'envoi du fichier !</strong> Réessayez !';
-                print("<script language=\"javascript\" type=\"text/javascript\">window.location.replace(\"../create-article.php?\");</script>");
+                print("<script language=\"javascript\" type=\"text/javascript\">window.location.replace(\"../upload-image.php?error\");</script>");
             }
         }
     }

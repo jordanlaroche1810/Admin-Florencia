@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php require_once("db.php") ?>
+<?php require_once("check-user.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +27,7 @@
                 <div class="container">
                     <!--Logo-->
                     <div id="logo" style="max-width:80px">
-                        <a href="index.html">
+                        <a href="/admin-florencia">
                             <span class="logo-default"><img width="200px" src="assets/logo/logo_florencia_rouge.png"></span>
                             <span class="logo-dark"><img width="200px" src="assets/logo/logo_florencia_blanc.png"></span>
                         </a>

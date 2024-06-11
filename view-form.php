@@ -28,7 +28,15 @@
                                         <?php
                                             $reqcount = $pdo->query("SELECT COUNT(*) FROM forms")->fetchColumn(); 
 
-                                            $reqlist = $pdo->query("SELECT * FROM forms");
+                                            if($_GET["statut"] = "tous"){
+                                                $reqlist = $pdo->query("SELECT * FROM forms");
+                                            }else if($_GET["statut"] = "enAttente"){
+                                                $reqlist = $pdo->query("SELECT * FROM forms WHERE status = 'En attente' ");
+                                            }else if($_GET["statut"] = "rappel"){
+                                                $reqlist = $pdo->query("SELECT * FROM forms WHERE status = 'Rappel client' ");
+                                            }else if($_GET["statut"] = "traite"){
+                                                $reqlist = $pdo->query("SELECT * FROM forms WHERE status = 'Traité' ");
+                                            }
                                             while ($list = $reqlist->fetch(PDO::FETCH_ASSOC)) {
                                         ?>
                                         <tr role="row" class="odd">
@@ -39,9 +47,8 @@
                                             <td><?= $list["email"]?></td>
                                             <td><?= $list["status"]?></td>
                                             <td>
-                                                <a class="ms-2 text-reset" href="#" data-bs-toggle="tooltip" data-bs-original-title="Edit"><i class="icon-edit"></i></a>
-                                                <a class="ms-2 text-reset" href="#" data-bs-toggle="tooltip" data-bs-original-title="Delete"><i class="icon-trash-2"></i></a>
-                                                <a class="ms-2 text-reset" href="#" data-bs-toggle="tooltip" data-bs-original-title="Settings"><i class="icon-settings"></i></a>
+                                                <a class="ms-2 text-reset" href="#" data-bs-toggle="tooltip" data-bs-original-title="Details"><i class="icon-eye"></i></a>
+                                                <a class="ms-2 text-reset" href="#" data-bs-toggle="tooltip" data-bs-original-title="Suppression"><i class="icon-trash-2"></i></a>
                                             </td>
                                         </tr>
                                         <?php 

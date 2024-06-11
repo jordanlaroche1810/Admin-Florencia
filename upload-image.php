@@ -68,19 +68,26 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 id="modal-label-3" class="modal-title">Ajout d'image pour le portfolio</h4>
-                        <button aria-hidden="true" data-bs-dismiss="modal" class="btn-close" type="button">×</button>
+                        <button aria-hidden="true" data-bs-dismiss="modal" class="btn-close" type="button">x</button>
                     </div>
                     <div class="modal-body">
                         <form method="POST" action="functions/upload-image.php" enctype="multipart/form-data">
                             <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="titre">Titre de la photo</label>
+                                    <input type="text" aria-required="true" name="titre" required class="form-control required name" placeholder="Entrez le titre de votre photo">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="description">Courte description de la photo</label>
+                                    <input type="text" aria-required="true" name="description" required class="form-control required name" placeholder="Entrez la description de votre photo">
+                                </div>
                                 <div class="form-group col-md-12">
                                     <label for="categorie">Catégorie de l'article</label>
                                     <select class="form-select" name="categorie" id="category-ie">
-                                        <option>Question</option>
-                                        <option>Devis</option>
-                                        <option>Partenariat</option>
-                                        <option>Autres</option>
-                                        <option>5</option>
+                                        <option value="inspirations">Inspirations</option>
+                                        <option value="photographies">Photographies</option>
+                                        <option value="decorations">Décorations</option>
+                                        <option value="autres">Autres</option>
                                     </select>
                                 </div>
                             </div>
