@@ -32,6 +32,19 @@
                             <span class="logo-dark"><img width="200px" src="assets/logo/logo_florencia_blanc.png"></span>
                         </a>
                     </div>
+                    <div class="header-extras d-none d-lg-block">
+                        <ul>
+                            <li class="social-facebook">
+                                <a href="functions/deconnexion.php">
+                                    <div class="icon-preview">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-power-off"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <div id="mainMenu-trigger">
                         <a class="lines-button x"><span class="lines"></span></a>
                     </div>

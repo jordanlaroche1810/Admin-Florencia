@@ -75,16 +75,16 @@
                                     <h6 class="h3 mb-1">Login</h6>
                                     <p class="text-muted mb-0">Sign in to your account to continue.</p>
                                 </div><span class="clearfix"></span>
-                                <form class="form-validate">
+                                <form class="form-validate" method="POST" action="functions/login.php">
                                     <div class="form-group">
-                                        <label for="email">Email address</label>
+                                        <label for="email">Adresse email</label>
                                         <div class="input-group">
                                         <input type="email" class="form-control" name="email" placeholder="Enter your email" required="">
                                         <span class="input-group-text"><i class="icon-user"></i></span>
                                     </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="password">Password</label>
+                                        <label for="password">Mot de passe</label>
                                         <div class="input-group show-hide-password">
                                             <input class="form-control" name="password" placeholder="Enter password" type="password" required="">
                                             <span class="input-group-text"><i class="icon-eye-off" aria-hidden="true" style="cursor: pointer;"></i></span>

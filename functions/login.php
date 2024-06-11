@@ -29,13 +29,13 @@
 
                 }else{
                     $_SESSION['flash']['error'] = 'Mot de passe invalide !';
-                    header('Location: ../index.php');
+                    header('Location: ../login.php');
                     ob_end_flush();
                 }
 
             }else{
                 $_SESSION['flash']['error'] = 'Mot de passe ou E-mail invalide !';
-                header('Location: ../index.php');
+                header('Location: ../login.php');
                 ob_end_flush();
             }
         }
